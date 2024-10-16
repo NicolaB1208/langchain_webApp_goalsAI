@@ -1,0 +1,313 @@
+.main-container {
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  min-height: 100vh; /* Ensure it's at least as tall as the viewport */
+  height: 100vh;
+  justify-content: space-between; /* This will put the footer at the bottom */
+}
+
+.container {
+  display: flex;
+  flex: 1; /* Take up remaining space */
+  overflow-y: auto;
+  flex-direction: row;
+  justify-content: space-between; /* To space out the goals and chatbot sections */
+  max-width: 1200px; /* Adjust this to fit your desired maximum width */
+  width: 100%; /* This ensures that the container takes up the full width */
+}
+
+
+/* Adjust your chatbot and goals display to each take up half the width */
+.chatbot, .goals-display {
+  flex: 1 1 50%;
+  margin: 0 10px; /* This adds space between the chatbot and goals display */
+  margin-bottom: 0px; /* This adds space between the chatbot and footer */
+}
+
+
+body {
+  font-family: "Arial", sans-serif; /* Set your font styles here */
+  font-weight: normal; /* Use 'normal' for regular font style */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f8f8f8;
+  color: #333;
+  transition: all 0.3s ease;
+  font-size: 18px;
+}
+
+body.dark {
+  background-color: #1c1c1c;
+  color: #ffffff;
+}
+
+.chatbot {
+  padding: 10px;
+  border: none; /* Removes the border */
+  overflow: hidden;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  width: 100%; /* Adjust width if necessary */
+  height: 100%; /* Adjust height if necessary */
+  max-width: none; /* Allows chat area to extend fully in width */
+  margin: 0 10px;
+  height: auto; /* Adjust as necessary to fill the page */
+  min-width: 600px;
+}
+
+.messages {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 0px;
+  background-color: transparent; 
+  margin-top: 0px; /* Add margin to the top of the messages container */
+}
+
+body.dark .messages {
+  background-color: #2c2c2c;
+}
+
+.message {
+  margin-bottom: 0px;
+  line-height: 1.4;
+  word-wrap: break-word;
+  padding: 0px 0px; /* Adjust padding */
+  background-color: transparent; /* Remove bubble background */
+  border: none; /* Remove borders if any */
+  margin-top: 0px;
+  margin: 0;
+  padding: 0;
+}
+
+.message.user {
+  margin-top: 0px;
+  align-self: flex-end;
+  color: #0f0f0f; /* or any color you prefer */
+  margin-bottom: 0px;
+}
+
+.message.bot {
+  align-self: flex-start;
+  color: #1e1d01; /* or any color you prefer for bot messages */
+  margin-top: 0px;
+}
+
+.message-title {
+  margin-top: 3px;
+  margin-bottom: 3px;
+  font-weight: bold;
+}
+
+/* If there's still space, ensure that the first paragraph or element after the title has no top margin */
+.message p:first-child,
+.message div:first-child {
+  margin-top: 0;
+}
+
+body.dark .message.bot {
+  background-color: #3d3d3d;
+  color: #ffffff;
+}
+
+.input-area {
+  display: flex;
+  /*padding: 10px;*/
+  margin-top: 10px;
+  align-items: flex-start; /* Align items to the start of the flex container */
+}
+
+.input-area textarea {
+  font-family: inherit; /* Inherit font-family from parent element */
+  font-size: inherit; /* Inherit font-size from parent element */
+  font-weight: inherit; /* Inherit font-weight from parent element */
+  flex-grow: 1;
+  border: 1px solid #ccc; /* Add border if needed */
+  border-radius: 18px;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+  padding: 20px; /* Increase padding for better appearance */
+  margin-right: 5px;
+  outline: none;
+  resize: none; /* Prevent the textarea from being resized */
+  overflow: auto; /* Allow the scrollbar to appear if content overflows */
+  min-height: 50px;
+  line-height: 1.6;
+  box-sizing: border-box;
+  max-height: 93vh;
+}
+
+.input-area button {
+  background-color: #1B1B1B;
+  border: none;
+  border-radius: 5px;
+  /*padding: 5px 10px;*/
+  /*margin-left: 5px;*/
+  margin-bottom: 16px;
+  cursor: pointer;
+  align-self: end;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+}
+
+.input-area button img {
+  width: 100%; /* Make the SVG size responsive to the button's size */
+  height: auto; /* Keep the SVG aspect ratio */
+}
+
+body.dark .input-area button {
+  background-color: #3d3d3d;
+}
+
+.goals-display {
+  background-color: transparent; /* Light grey background */
+  border-bottom: none; /* Separator line */
+  padding: 10px; /* Padding around the content */
+}
+
+.goal {
+  background-color: #1B1B1B; /* White background for each goal */
+  margin-bottom: 15px; /* Space between goals */
+  padding: 15px; /* Padding inside each goal */
+  border-radius: 20px; /* Rounded corners for each goal */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Simple shadow for depth */
+}
+
+.goal h2 {
+  margin-top: 0px; /* Remove default top margin from h2 */
+  margin-bottom: 5px;
+  color: #FEDA00; /* Color for the goal title */
+}
+
+.goal h3 {
+  margin-top: 18px; /* Remove default top margin from h2 */
+  margin-bottom: 5px;
+  color: #FEDA00; /* Color for the goal title */
+}
+
+.goal p {
+  margin-bottom: 0px; /* Remove default bottom margin from p */
+  margin-top: 0px;
+}
+
+/* Add this to your style.css file */
+.goal-description {
+  color: #ffffff; /* This sets the text color to white */
+  margin-top: 0px;
+}
+
+@keyframes pulse {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.thinking-animation {
+  /*display: none; /* Hidden by default */
+  align-self: left;
+  margin: 10 auto;
+  margin-bottom: 30px;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background-color: #000;
+  align-self: left;/* or any color you prefer */
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+.header {
+  text-align: right; /* Align items to the right */
+  padding: 5px; /* Add some padding */
+  background-color: #f8f8f8; /* Light background for the header */
+  display: flex;
+  justify-content: flex-end; /* Align items to the end (right) */
+  align-items: center;
+  gap: 12px; /* Space between log in text and sign up button */
+  margin-top: 20px;
+  margin-right: 30px;
+}
+
+.login-text {
+  font-size: 16px;
+  color: #333; /* Soft contrast color for the log-in link */
+  text-decoration: none; /* Removes underline from links */
+  transition: color 0.3s ease; /* Transition for hover effect */
+}
+
+.login-text:hover {
+  color: ##FEDA00; /* A color that stands out on hover, for the log-in link */
+}
+
+.signup-button {
+  font-size: 16px;
+  color: #333; /* White text color for the sign-up button */
+  background: #feda006b; /* Stand-out color for the sign-up button */
+  border: none;
+  border-radius: 20px; /* Rounded corners for the button */
+  padding: 10px 20px; /* Padding inside the button */
+  cursor: pointer; /* Changes the cursor on hover over the button */
+  transition: background-color 0.3s ease; /* Transition for hover effect */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.signup-button:hover {
+  background-color: #FEDA00; /* A darker shade of the button color on hover */
+}
+
+/*new all in one line */
+.footer {
+  text-align: center;
+  /*padding: 5px;*/
+  margin-bottom: 20px;
+  background-color: transparent;
+  display: flex; /* Aligns child elements inline */
+  justify-content: center; /* Centers the flex items */
+  align-items: center; /* Aligns items vertically */
+  gap: 12px; /* Adds space between items */
+}
+
+.footer a {
+  color: #000; /* Choose a color that fits your design */
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: #FEDA00; /* Choose a color that fits your design */
+}
+
+/* You may want to add additional styling for responsive design or other preferences */
+
+/* Styles the scrollbar track */
+.input-area textarea::-webkit-scrollbar-track {
+  background: transparent; /* Color of the scrollbar track */
+  border-radius: 5px; /* Adds roundness to the track */
+}
+
+/* Styles the scrollbar thumb (the draggable element) */
+.input-area textarea::-webkit-scrollbar-thumb {
+  background: #cfcece; /* Color of the scrollbar thumb */
+  border-radius: 5px; /* Adds roundness to the thumb */
+}
+
+/* Styles the scrollbar thumb on hover */
+.input-area textarea::-webkit-scrollbar-thumb:hover {
+  background: #FEDA00; /* Darker color on hover */
+}
+
+/* Styles the scrollbar itself */
+.input-area textarea::-webkit-scrollbar {
+  width: 5px; /* Width of the scrollbar */
+}
+
+/* Firefox scrollbar styles */
+.input-area textarea {
+  scrollbar-width: thin; /* Can be "auto", "thin", or "none" */
+  scrollbar-color: #cfcece transparent; /* Thumb and track color */
+}

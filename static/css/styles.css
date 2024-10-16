@@ -1,0 +1,133 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #121212; /* Dark background */
+  color: #fff; /* White text color */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+  /* Style for the image container */
+  .image-container {
+      position: relative; /* Use relative positioning for centering and possible content inside the container */
+      width: 60vh;
+  }
+
+  .image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /*background: rgba(255, 255, 255, 0.2); /* Adjust the opacity to make the image darker or lighter */
+    z-index: 1; /* Overlay should be above the image but below the text content */
+    pointer-events: none;
+   }
+
+  /* Style for the image itself */
+  .centered-image {
+      max-width: 100%; /* This ensures the image is responsive and does not overflow its container */
+      max-height: 100%;
+      display: block; /* Removes the bottom margin/padding of the image */
+      transition: filter 0.5s ease; /* Animate the filter property over 0.5 seconds */
+      position: relative;
+      /*box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Optional: Adds shadow for a "floating" effect */
+  }
+
+      /* This class applies the blur effect */
+      .blur-effect {
+          filter: blur(40px); /* Adjust the px value for more or less blur */
+      }
+
+  /* If you want to have an overlay or additional content over the image, you can use something like this */
+  .overlay-content {
+      opacity: 0; /* Start with the content being invisible */
+      transition: opacity 0.5s ease; /* Transition for the opacity */
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      text-align: center;
+      z-index: 2;
+  }
+
+form {
+  background: none; /* Slightly lighter dark shade for the form background */
+  width: 320px;
+  height: 44px;
+  border-radius: 8px;
+  padding: 40px;
+  /*box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Soft box shadow for depth */
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="password"] {
+  position: relative;
+  line-height: 19px;
+  background: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
+  border: 0.5px solid rgba(255, 255, 255, 0.08);
+  box-shadow: rgba(0, 0, 0, 0.08) 1px 1px 1px inset;
+  backdrop-filter: blur(2px);
+  border-radius: 99px;
+  width: calc(100%); /* Full width minus padding */
+  padding: 10px 10px 10px 21px;
+  margin-bottom: 27px;
+  display: flex;
+}
+
+input::placeholder {
+  color: black;
+}
+
+button {
+  position: relative;
+  line-height: 19px;
+  background: rgba(255, 255, 255, 1); /* Semi-transparent white */
+  border: 0.5px solid rgba(255, 255, 255, 0.08);
+  box-shadow: rgba(0, 0, 0, 0.08) 1px 1px 1px inset;
+  backdrop-filter: blur(2px);
+  border-radius: 99px;
+  width: calc(45%); /* Full width minus padding */
+  padding: 10px;
+  margin-bottom: 27px;
+}
+
+button:hover {
+  background-color: #1669c7; /* Darker Google blue */
+}
+
+a {
+  color: #1a73e8; /* Google blue */
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+#user-exists-error {
+  background-color: none; /* #f44336 */
+  color: #fff;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  display: none; /* Hide by default */
+}
+
+/* Footer text */
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  color: #aaa;
+}

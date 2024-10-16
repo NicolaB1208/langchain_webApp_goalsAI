@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta name="viewport" content="initial-scale=1, width=device-wdidth">
+        <title>Login</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const bg = document.querySelector('.centered-image');
+                const content = document.querySelector('.overlay-content');
+
+                // Set a timeout to apply the blur effect after 1000 milliseconds (1 second)
+                setTimeout(function() {
+                    bg.classList.add('blur-effect');
+                    // After the blur effect, start the transition to make content visible.
+                    // This should match the duration of the blur transition or be slightly longer.
+                    setTimeout(function() {
+                        content.style.opacity = '1';
+                    }, 1000);
+                }, 1000);
+            });
+        </script>
+    </head>
+
+    <body>
+        <div class="image-container">
+            <div class="image-overlay"></div>
+            <img src="static/images/TheProfessionalBeginner_Logo.png" alt="Centered Image" class="centered-image">
+            <!-- Optional overlay or additional content -->
+            <div class="overlay-content">
+                {% block body %}{% endblock %}
+            </div>
+        </div>
+    </body>
+</html>
